@@ -20,13 +20,14 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+    # command to change time delay of counting
     if message.author.id == 647946543411757059 and message.content.startswith("!delay "):
         parts = message.content.split(" ", 1)
         value = int(parts[1])
         with open("count_time_delay.json", "w") as file:
             json.dump(value, f)
     
-    # simple test command
+    # code to count with Baby Mario
     if message.author.id == 647946543411757059 or message.author.id == 1067461387242192896:
         with open("count_time_delay.json", "r") as file:
             time = json.load(file)
