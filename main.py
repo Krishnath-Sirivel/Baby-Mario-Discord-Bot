@@ -26,6 +26,7 @@ async def on_message(message):
         value = int(parts[1])
         with open("count_time_delay.json", "w") as file:
             json.dump(value, file)
+        await message.channel.send(":thumbsup:")
     
     # code to count with Baby Luigi
     elif message.author.id == 647946543411757059 or message.author.id == 1067461387242192896:
