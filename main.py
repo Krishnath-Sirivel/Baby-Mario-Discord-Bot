@@ -25,17 +25,18 @@ async def on_message(message):
         parts = message.content.split(" ", 1)
         value = int(parts[1])
         with open("count_time_delay.json", "w") as file:
-            json.dump(value, f)
+            json.dump(value, file)
     
     # code to count with Baby Luigi
-    if message.author.id == 647946543411757059 or message.author.id == 1067461387242192896:
-        with open("count_time_delay.json", "r") as file:
-            time = json.load(file)
-        await asyncio.sleep(time)
-        num = int(message.content)
-        num += 1
-        num = str(num)
-        await message.channel.send(num)
+    elif message.author.id == 647946543411757059 or message.author.id == 1067461387242192896:
+        if message.channel.id == 1496153092000059392:
+            with open("count_time_delay.json", "r") as file:
+                time = json.load(file)
+            await asyncio.sleep(time)
+            num = int(message.content)
+            num += 1
+            num = str(num)
+            await message.channel.send(num)
 
     
 
